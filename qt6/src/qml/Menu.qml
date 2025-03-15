@@ -45,11 +45,12 @@ T.Menu {
 
     contentItem: FocusScope {
         // QTBUG-99897 focus doesn't be clear.
-        width: viewLayout.width
-        height: viewLayout.height
+        implicitWidth: viewLayout.implicitWidth
+        implicitHeight: viewLayout.implicitHeight
         ColumnLayout {
             id: viewLayout
             spacing: 0
+            anchors.fill: parent
 
             Loader {
                 Layout.fillWidth: true
@@ -66,19 +67,6 @@ T.Menu {
                 view.currentIndex: control.currentIndex
                 maxVisibleItems: control.maxVisibleItems
                 itemHeight: DS.Style.menu.item.height
-
-                function refreshContentItemWidth()
-                {
-                    for (var i = 0; i < view.count; ++i) {
-                        var item = view.model.get(i)
-                        if (item) {
-                            item.width = view.width
-                        }
-                    }
-                }
-
-                onCountChanged: refreshContentItemWidth()
-                onWidthChanged: refreshContentItemWidth()
                 view.highlightFollowsCurrentItem: true
                 view.highlightMoveDuration: 50
                 view.highlightMoveVelocity: -1

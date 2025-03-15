@@ -148,9 +148,15 @@ T.ComboBox {
                 }
             }
         }
+        Loader {
+            anchors.fill: parent
+            active: control.flat && control.visualFocus
+            sourceComponent: FocusBoxBorder {}
+        }
     }
 
     popup: Popup {
+        palette: control.palette
         implicitWidth: control.width
         contentItem: ArrowListView {
             clip: true
