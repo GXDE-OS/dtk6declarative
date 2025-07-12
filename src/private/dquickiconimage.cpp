@@ -56,8 +56,6 @@ QImage DQuickIconImagePrivate::requestImageFromBase64(const QString &name, const
     QSize icon_size = requestedSize;
     if (icon_size.isEmpty()) {
         icon_size = image.size();
-    } else {
-        icon_size /= devicePixelRatio;
     }
     image = image.scaled(icon_size * devicePixelRatio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
@@ -226,7 +224,7 @@ void DQuickIconImage::setName(const QString &name)
     }
 
     if (isComponentComplete()) {
-        d->init();
+        d->maybeUpdateUrl();
     }
 }
 

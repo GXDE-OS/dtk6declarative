@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(DTK_VERSION "5.6.23" CACHE STRING "Define project version")
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/VERSION" DTK_FILE_VERSION)
+string(STRIP "${DTK_FILE_VERSION}" DTK_FILE_VERSION)
+set(DTK_VERSION "${DTK_FILE_VERSION}" CACHE STRING "Define project version")
 project(DtkDeclarative
     VERSION "${DTK_VERSION}"
     DESCRIPTION "DTK Declarative module"
@@ -69,8 +71,7 @@ if(TARGET Qt6::QuickControls2 AND TARGET Qt6::QuickControls2Private)
 endif()
 endif()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wextra")
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--as-needed")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wextra")
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     # 加上 ASAN 检查后可能会导致 DEBUG 应用启动后退出。可以加上 ASAN_OPTIONS 环境变量来防止应用退出
     # ASAN_OPTIONS="halt_on_error=0" ASAN_OPTIONS="new_delete_type_mismatch=0"
