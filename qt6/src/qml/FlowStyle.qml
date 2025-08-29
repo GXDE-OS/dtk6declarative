@@ -350,6 +350,7 @@ QtObject {
     property QtObject warningButton: QtObject {
         property D.Palette text: D.Palette {
             normal: ("#ff5736")
+            normalDark: normal
         }
     }
 
@@ -504,6 +505,7 @@ QtObject {
             }
 
             property D.Palette shadowInner2: D.Palette {
+                normal: Qt.rgba(0, 0, 0, 0.1)
                 normalDark: Qt.rgba(1, 1, 1, 0.1)
             }
 
@@ -619,8 +621,8 @@ QtObject {
         }
 
         property D.Palette background: D.Palette {
-            normal: Qt.rgba(247 / 255, 247 / 255, 247 / 255, 0.6)
-            normalDark: Qt.rgba(59 / 255, 59 / 255, 59 / 255, 0.6)
+            normal: Qt.rgba(247 / 255.0, 247 / 255.0, 247 / 255.0, 0.5)
+            normalDark: Qt.rgba(59 / 255.0, 59 / 255.0, 59 / 255.0, 0.5)
         }
 
         property D.Palette connecterdropShadow: D.Palette {
@@ -630,6 +632,21 @@ QtObject {
         property D.Palette connecterBackground: D.Palette {
             normal: Qt.rgba(1, 1, 1, 1)
             normalDark: Qt.rgba(0, 0, 0, 0.1)
+        }
+
+        property D.Palette dropShadow: D.Palette {
+            normal: Qt.rgba(0, 0, 0, 0.1)
+            normalDark: Qt.rgba(0, 0, 0, 0.2)
+        }
+
+        property D.Palette outsideBorder: D.Palette {
+            normal: Qt.rgba(0, 0, 0, 0.1)
+            normalDark: Qt.rgba(0, 0, 0, 0.7)
+        }
+
+        property D.Palette insideBorder: D.Palette {
+            normal: Qt.rgba(1, 1, 1, 0.3)
+            normalDark: Qt.rgba(1, 1, 1, 0.1)
         }
     }
 
@@ -835,6 +852,11 @@ QtObject {
         property D.Palette handleGradientColor:  D.Palette {
             normal: D.DTK.makeColor(D.Color.Highlight).hue(-0).saturation(+30).lightness(+30)
         }
+
+        property D.Palette background: D.Palette {
+            normal: Qt.rgba(0, 0, 0, 0.1)
+            normalDark: Qt.rgba(1, 1, 1, 0.1)
+        }
     }
 
     property QtObject embeddedProgressBar: QtObject {
@@ -846,7 +868,7 @@ QtObject {
 
         property D.Palette background: D.Palette {
             normal: Qt.rgba(0, 0, 0, 0.7)
-            normalDark: Qt.rgba(0, 0, 0, 0.2)
+            normalDark: Qt.rgba(1, 1, 1, 0.2)
         }
 
         property D.Palette progressBackground: D.Palette {

@@ -8,6 +8,24 @@
     </message>
 </context>
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="83"/>
+        <source>Version</source>
+        <translation>Verze</translation>
+    </message>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="97"/>
+        <source>Homepage</source>
+        <translation>Domovská stránka</translation>
+    </message>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="112"/>
+        <source>Description</source>
+        <translation>Popis</translation>
+    </message>
+</context>
+<context>
     <name>HelpAction</name>
     <message>
         <location filename="../qml/HelpAction.qml" line="10"/>
@@ -36,7 +54,40 @@
     <message>
         <location filename="../qml/settings/SettingsDialog.qml" line="79"/>
         <source>Restore Defaults</source>
-        <translation>Vráti na výchozí hodnoty</translation>
+        <translation>Vrátit na výchozí hodnoty</translation>
+    </message>
+</context>
+<context>
+    <name>TextField</name>
+    <message>
+        <location filename="../qml/TextField.qml" line="71"/>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="78"/>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="85"/>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="91"/>
+        <source>Select All</source>
+        <translation>Vybrat vše</translation>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="98"/>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="105"/>
+        <source>Redo</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -47,17 +98,17 @@
         <translation>Vzhled</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="21"/>
+        <location filename="../qml/ThemeMenu.qml" line="23"/>
         <source>Light Theme</source>
         <translation>Světlý vzhled</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="27"/>
+        <location filename="../qml/ThemeMenu.qml" line="29"/>
         <source>Dark Theme</source>
         <translation>Tmavý vzhled</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="33"/>
+        <location filename="../qml/ThemeMenu.qml" line="35"/>
         <source>System Theme</source>
         <translation>Systémový vzhled</translation>
     </message>

@@ -8,6 +8,24 @@
     </message>
 </context>
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="83"/>
+        <source>Version</source>
+        <translation>Različica</translation>
+    </message>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="97"/>
+        <source>Homepage</source>
+        <translation>Domača stran</translation>
+    </message>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="112"/>
+        <source>Description</source>
+        <translation>Opis</translation>
+    </message>
+</context>
+<context>
     <name>HelpAction</name>
     <message>
         <location filename="../qml/HelpAction.qml" line="10"/>
@@ -40,6 +58,39 @@
     </message>
 </context>
 <context>
+    <name>TextField</name>
+    <message>
+        <location filename="../qml/TextField.qml" line="71"/>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="78"/>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="85"/>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="91"/>
+        <source>Select All</source>
+        <translation>Izberi vse</translation>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="98"/>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="105"/>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ThemeMenu</name>
     <message>
         <location filename="../qml/ThemeMenu.qml" line="11"/>
@@ -47,17 +98,17 @@
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="21"/>
+        <location filename="../qml/ThemeMenu.qml" line="23"/>
         <source>Light Theme</source>
         <translation>Svetla tema</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="27"/>
+        <location filename="../qml/ThemeMenu.qml" line="29"/>
         <source>Dark Theme</source>
         <translation>Temna tema</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="33"/>
+        <location filename="../qml/ThemeMenu.qml" line="35"/>
         <source>System Theme</source>
         <translation>Sistemska tema</translation>
     </message>

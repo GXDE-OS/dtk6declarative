@@ -8,6 +8,24 @@
     </message>
 </context>
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="83"/>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="97"/>
+        <source>Homepage</source>
+        <translation>Page d&apos;acceuil</translation>
+    </message>
+    <message>
+        <location filename="../qml/AboutDialog.qml" line="112"/>
+        <source>Description</source>
+        <translation>Description</translation>
+    </message>
+</context>
+<context>
     <name>HelpAction</name>
     <message>
         <location filename="../qml/HelpAction.qml" line="10"/>
@@ -36,7 +54,40 @@
     <message>
         <location filename="../qml/settings/SettingsDialog.qml" line="79"/>
         <source>Restore Defaults</source>
-        <translation>Réinitialiser par défaut</translation>
+        <translation>Réinitialiser</translation>
+    </message>
+</context>
+<context>
+    <name>TextField</name>
+    <message>
+        <location filename="../qml/TextField.qml" line="71"/>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="78"/>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="85"/>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="91"/>
+        <source>Select All</source>
+        <translation>Tout sélectionner</translation>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="98"/>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../qml/TextField.qml" line="105"/>
+        <source>Redo</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -47,17 +98,17 @@
         <translation>Thème</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="21"/>
+        <location filename="../qml/ThemeMenu.qml" line="23"/>
         <source>Light Theme</source>
         <translation>Thème clair</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="27"/>
+        <location filename="../qml/ThemeMenu.qml" line="29"/>
         <source>Dark Theme</source>
         <translation>Thème sombre</translation>
     </message>
     <message>
-        <location filename="../qml/ThemeMenu.qml" line="33"/>
+        <location filename="../qml/ThemeMenu.qml" line="35"/>
         <source>System Theme</source>
         <translation>Thème du système</translation>
     </message>
