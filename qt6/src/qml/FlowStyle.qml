@@ -15,8 +15,8 @@ QtObject {
         property real focusBorderPaddings: 1
 
         property D.Palette border: D.Palette {
-            normal: Qt.rgba(0, 0, 0, 0.05)
-            normalDark: Qt.rgba(0, 0, 0, 0.05)
+            normal: Qt.rgba(0, 0, 0, 0.1)
+            normalDark: Qt.rgba(0, 0, 0, 0.1)
         }
 
         function implicitWidth(control) {
@@ -449,8 +449,8 @@ QtObject {
         }
 
         property D.Palette placeholderText: D.Palette {
-            normal: Qt.rgba(0.33, 0.33, 0.33, 0.4)
-            normalDark: Qt.rgba(1, 1, 1, 0.3)
+            normal: Qt.rgba(0, 0, 0, 0.7)
+            normalDark: Qt.rgba(1, 1, 1, 0.7)
         }
     }
 
@@ -565,6 +565,7 @@ QtObject {
         property int height: 180
         property int radius: 18
         property int padding: 10
+        property int margin: 10
     }
 
     property QtObject floatingMessage: QtObject {
@@ -614,6 +615,9 @@ QtObject {
         property int connectorHeight: 12
         property int verticalPadding: 4
         property int horizontalPadding: 10
+        property int width: 30
+        property int height: 24
+        property int radius: 6
 
         property D.Palette text: D.Palette {
             normal: ("#e15736")
@@ -631,7 +635,7 @@ QtObject {
 
         property D.Palette connecterBackground: D.Palette {
             normal: Qt.rgba(1, 1, 1, 1)
-            normalDark: Qt.rgba(0, 0, 0, 0.1)
+            normalDark: Qt.rgba(51 / 255.0, 51 / 255.0, 51 / 255.0, 1)
         }
 
         property D.Palette dropShadow: D.Palette {
@@ -816,6 +820,7 @@ QtObject {
         property real hideOpacity: 0.0
         property int hidePauseDuration: 450
         property int hideDuration: 1500
+        property int hideWidthDuration: 100
 
         property D.Palette background: D.Palette {
             normal: Qt.rgba(0, 0, 0, 0.3)

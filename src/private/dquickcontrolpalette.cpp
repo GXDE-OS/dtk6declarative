@@ -344,7 +344,11 @@ void DQuickControlColorSelector::findAndSetControlParent()
 {
     QQuickItem *parentItem = qobject_cast<QQuickItem*>(parent());
     Q_ASSERT(parentItem);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     for (const QMetaObject::Connection &conn : qAsConst(m_itemParentChangeConnections)) {
+#else
+    for (const QMetaObject::Connection &conn : std::as_const(m_itemParentChangeConnections)) {
+#endif
         disconnect(conn);
     }
     m_itemParentChangeConnections.clear();
@@ -352,7 +356,7 @@ void DQuickControlColorSelector::findAndSetControlParent()
     bool needUpdateControl = true;
     bool needUpdateColorFamily = !m_state->familyIsUserSet;
     do {
-        if (needUpdateControl && _d_isControlItem(parentItem)) {
+        if (needUpdateControl && (_d_isControlItem(parentItem) || specialObjectNameItems().contains(parentItem->objectName()))) {
             needUpdateControl = false;
             setControl(parentItem);
         }
@@ -463,8 +467,12 @@ void DQuickControlColorSelector::setControl(QQuickItem *newControl)
         auto palette = m_control->property("palette").value<QQuickPalette*>();
         connect(palette, &QQuickPalette::changed, this, &DQuickControlColorSelector::updateControlTheme);
 #endif
-        connect(m_control, SIGNAL(paletteChanged()), this, SLOT(updateControlTheme()));
-        connect(m_control, SIGNAL(hoveredChanged()), this, SLOT(updateControlState()));
+        if (m_control->metaObject()->indexOfSignal("paletteChanged()") != -1) {
+            connect(m_control, SIGNAL(paletteChanged()), this, SLOT(updateControlTheme()));
+        }
+        if (m_control->metaObject()->indexOfSignal("hoveredChanged()") != -1) {
+            connect(m_control, SIGNAL(hoveredChanged()), this, SLOT(updateControlState()));
+        }
         if (m_control->metaObject()->indexOfSignal("pressedChanged()") != -1) {
             connect(m_control, SIGNAL(pressedChanged()), this, SLOT(updateControlState()));
         }
@@ -834,6 +842,17 @@ QColor DQuickControlColorSelector::getColorOf(const DQuickControlPalette *palett
         colorValue = QColor(255 - r, 255 - g, 255 - b, a);
     }
 
+    // items with inactive state should use inactive color, it likes dtkgui's generatePaletteColor_helper.
+    static const auto useInactiveColor = DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::UseInactiveColorGroup);
+    if (useInactiveColor && state->controlState == DQMLGlobalObject::InactiveState) {
+        const auto &palette = DGuiApplicationHelper::standardPalette(state->controlTheme);
+        const auto &windowColor = palette.color(QPalette::Window);
+
+        QColor inactiveMaskColor = windowColor;
+        inactiveMaskColor.setAlphaF(state->controlTheme == DGuiApplicationHelper::DarkType ? 0.6 : 0.4);
+        colorValue = DGuiApplicationHelper::blendColor(colorValue, inactiveMaskColor);
+    }
+
     return colorValue;
 }
 
@@ -1028,7 +1047,11 @@ void DQuickControlColorSelector::recvPaletteColorChanged()
     auto palette = qobject_cast<DQuickControlPalette*>(sender());
     Q_ASSERT(palette);
     // Maybe the multiple properties is use a same palette.
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    for (const auto &i : std::as_const(m_palettes)) {
+#else
     for (const auto &i : qAsConst(m_palettes)) {
+#endif
         if (i.second != palette)
             continue;
         updatePropertyFromName(i.first, palette);
@@ -1040,7 +1063,11 @@ void DQuickControlColorSelector::onPaletteDestroyed()
     auto palette = sender();
     Q_ASSERT(palette);
     // Maybe the multiple properties is use a same palette.
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    for (const auto &i : std::as_const(m_palettes)) {
+#else
     for (const auto &i : qAsConst(m_palettes)) {
+#endif
         if (i.second != palette)
             continue;
         setPalette(i.first, nullptr);

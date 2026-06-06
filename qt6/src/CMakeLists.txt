@@ -21,6 +21,9 @@ qt_add_qml_module(${LIB_NAME}
 
 dtk_extend_target(${LIB_NAME} EnableCov ${ENABLE_COV})
 dtk_extend_target(${PLUGIN_NAME} EnableCov ${ENABLE_COV})
+target_compile_definitions(${LIB_NAME} PRIVATE
+    D_IGNORE_DEPRECATIONS
+)
 
 qt_add_translations(${LIB_NAME}
     TS_FILES ${TS_FILES}
@@ -84,4 +87,4 @@ install(EXPORT Dtk${DTK_VERSION_MAJOR}DeclarativeTargets NAMESPACE Dtk${DTK_VERS
 install(FILES ${QM_FILES} DESTINATION "${TRANSLATIONS_INSTALL_PATH}")
 # Install plugin
 install(TARGETS ${PLUGIN_NAME} DESTINATION "${QML_INSTALL_DIR}/${URI_PATH}")
-install(DIRECTORY "${PLUGIN_OUTPUT_DIR}/${URI_PATH}/" DESTINATION "${QML_INSTALL_DIR}/${URI_PATH}")
+install(FILES "${PLUGIN_OUTPUT_DIR}/${URI_PATH}/qmldir" DESTINATION "${QML_INSTALL_DIR}/${URI_PATH}")

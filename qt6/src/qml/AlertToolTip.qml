@@ -11,6 +11,7 @@ ToolTip {
     property Item target
 
     x: 0
+    y: target ? target.height + DS.Style.control.spacing : 0
     topPadding: DS.Style.alertToolTip.verticalPadding
     bottomPadding: DS.Style.alertToolTip.verticalPadding
     leftPadding: DS.Style.alertToolTip.horizontalPadding
@@ -21,6 +22,9 @@ ToolTip {
     closePolicy: Popup.NoAutoClose
 
     background: FloatingPanel {
+        radius: DS.Style.alertToolTip.radius
+        implicitWidth: DS.Style.alertToolTip.width
+        implicitHeight: DS.Style.alertToolTip.height
         backgroundColor: DS.Style.alertToolTip.background
         insideBorderColor: DS.Style.alertToolTip.insideBorder
         outsideBorderColor: DS.Style.alertToolTip.outsideBorder
@@ -37,12 +41,34 @@ ToolTip {
     }
 
     enter: Transition {
-        NumberAnimation { properties: "opacity"; from: 0.0; to: 1.0; duration: 200 }
+        // TODO: Transparency causes tooltips to appear through the window background - temporarily removed
+        // NumberAnimation { properties: "opacity"; from: 0.0; to: 1.0; duration: 200 }
         NumberAnimation { properties: "y"; from: control.target.height; to: control.target.height + DS.Style.control.spacing; duration: 200 }
     }
 
     exit: Transition {
-        NumberAnimation { properties: "opacity"; from: 1.0; to: 0.0 }
+        // NumberAnimation { properties: "opacity"; from: 1.0; to: 0.0 }
         NumberAnimation { properties: "y"; from: control.target.height + DS.Style.control.spacing ; to: control.target.height }
+    }
+
+    BoxShadow {
+        id: line
+        property D.Palette dropShadowColor: DS.Style.alertToolTip.connecterdropShadow
+        property D.Palette backgroundColor: DS.Style.alertToolTip.connecterBackground
+        property D.Palette borderColor: DS.Style.control.border
+        y: - height * (0.75) - control.topMargin - control.topPadding
+        width: DS.Style.alertToolTip.connectorWidth
+        height: DS.Style.alertToolTip.connectorHeight
+        shadowBlur: 4
+        shadowOffsetY: 2
+        shadowColor: D.ColorSelector.dropShadowColor
+        cornerRadius: DS.Style.control.radius
+
+        Rectangle {
+            anchors.fill: parent
+            color: line.D.ColorSelector.backgroundColor
+            border.color: line.D.ColorSelector.borderColor
+            border.width: 1
+        }
     }
 }

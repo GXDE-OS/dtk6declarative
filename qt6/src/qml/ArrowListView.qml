@@ -22,9 +22,9 @@ FocusScope {
         id: contentLayout
         anchors.fill: parent
         P.ArrowListViewButton {
-            visible: itemsView.interactive
+            visible: itemsView.interactive && !itemsView.atYBeginning
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: width
+            Layout.fillWidth: true
             Layout.preferredHeight: height
             view: itemsView
             direction: P.ArrowListViewButton.UpButton
@@ -62,12 +62,24 @@ FocusScope {
             highlightFollowsCurrentItem: true
             highlightMoveDuration: -1
             highlightMoveVelocity: 400
+
+            onCountChanged: refreshContentItemWidth()
+            onWidthChanged: refreshContentItemWidth()
+
+            function refreshContentItemWidth() {
+                for (var i = 0; i < itemsView.count; ++i) {
+                    var item = itemsView.itemAtIndex(i)
+                    if (item) {
+                        item.width = itemsView.width
+                    }
+                }
+            }
         }
 
         P.ArrowListViewButton {
-            visible: itemsView.interactive
+            visible: itemsView.interactive && !itemsView.atYEnd
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: width
+            Layout.fillWidth: true
             Layout.preferredHeight: height
             view: itemsView
             direction: P.ArrowListViewButton.DownButton

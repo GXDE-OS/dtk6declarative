@@ -5,6 +5,86 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.48] - 2025-12-04
+
+### Changed
+
+- From linuxdeepin/dtkdeclarative
+
+## [6.0.47] - 2025-11-27
+
+### Added
+
+- Add reproducible build flags
+
+### Changed
+
+- From linuxdeepin/dtkdeclarative
+
+## [6.0.46] - 2025-11-06
+
+### Added
+
+- Add versioned dependency for libdtk6declarative shared library
+
+### Changed
+
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- Chore: New release 6.0.45
+
+## [6.0.45] - 2025-10-30
+
+### Added
+
+- Add versioned dependency for libdtk6declarative shared library
+
+### Changed
+
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+
+## [6.0.44] - 2025-10-16
+
+### Changed
+
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+
+## [6.0.43] - 2025-09-25
+
+### Changed
+
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+
+## [6.0.42] - 2025-09-04
+
+### Changed
+
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+- From linuxdeepin/dtkdeclarative
+
 ## [6.0.41] - 2025-08-14
 
 ### Changed
