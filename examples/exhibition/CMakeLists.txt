@@ -14,11 +14,20 @@ if (EnableQt6)
 endif()
 add_executable(${BIN_NAME}
     ${CMAKE_CURRENT_LIST_DIR}/main.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/assets.qrc
     ${QML_RCS}
 )
 
 target_compile_options(${BIN_NAME} PRIVATE "-fpic")
+
+# The assets.qrc embeds ~22MB of binary resources. Compiling the rcc-generated
+# qrc_assets.cpp exhausts the 32-bit (i386) virtual address space
+# ("virtual memory exhausted"), regardless of optimization level or RAM.
+# Build it as an *external* binary resource (.rcc) and register it at runtime
+# instead of compiling it into the executable.
+qt_add_binary_resources(${BIN_NAME}_assets
+    ${CMAKE_CURRENT_LIST_DIR}/assets.qrc
+    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/assets.rcc
+)
 
 target_link_libraries(${BIN_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Quick
@@ -33,3 +42,4 @@ if (EnableQt6)
 endif()
 
 install(TARGETS ${BIN_NAME} DESTINATION ${EXAMPLE_INSTALL_DIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/assets.rcc DESTINATION ${EXAMPLE_INSTALL_DIR})

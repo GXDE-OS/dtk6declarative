@@ -1,3 +1,9 @@
+dtk6declarative (6.0.48-gxde1) UNRELEASED; urgency=medium
+
+  * 修复i386构建问题
+
+ -- gfdgd_xi <3025613752@qq.com>  Tue, 11 Aug 2026 11:54:52 +0800
+
 dtk6declarative (6.0.48) unstable; urgency=medium
 
   * Release 6.0.48

@@ -13,6 +13,8 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QSGRendererInterface>
+#include <QResource>
+#include <QCoreApplication>
 
 #include <DLog>
 
@@ -68,6 +70,13 @@ int main(int argc, char **argv)
     QGuiApplication app(argc, argv);
     app.setOrganizationName("deepin");
     app.setApplicationName("dtk-exhibition");
+
+    // Register the external binary resource (assets.rcc) at runtime.
+    // It is built separately to avoid exhausting the 32-bit virtual address
+    // space when compiling the rcc-generated source.
+    const QString rccPath = QStringLiteral("%1/assets.rcc").arg(QCoreApplication::applicationDirPath());
+    if (!QResource::registerResource(rccPath))
+        qWarning() << "Failed to register resource file:" << rccPath;
 
     QQmlApplicationEngine engine;
 
