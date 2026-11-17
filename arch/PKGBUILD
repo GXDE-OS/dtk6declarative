@@ -1,16 +1,17 @@
 # Maintainer: zccrs <zhangjide@deepin.org>
-pkgname=dtk6declarative-git
+pkgname=gxde-dtk6declarative
 pkgver=6.0.48
 pkgrel=1
 pkgdesc='Deepin Toolkit, declarative module for DDE look and feel'
 arch=('x86_64' 'aarch64')
 url="https://github.com/GXDE-OS/dtk6declarative"
 license=('LGPL-3.0-or-later')
-depends=('dtk6core-git' 'dtk6gui-git' 'dtkcommon-git' 'qt6-base' 'qt6-declarative' 'qt6-5compat' 'libglvnd' 'libgcc' 'libstdc++' 'glibc')
+depends=('gxde-dtk6core' 'gxde-dtk6gui' 'gxde-dtkcommon' 'qt6-base' 'qt6-declarative' 'qt6-5compat' 'libglvnd' 'libgcc' 'libstdc++' 'glibc')
 # Qt 6.12 的 qrhivulkan_p.h 需要 Vulkan 头文件 / Qt 6.12's qrhivulkan_p.h needs the Vulkan headers.
 makedepends=('git' 'cmake' 'ninja' 'qt6-tools' 'qt6-shadertools' 'vulkan-headers')
-provides=("dtk6declarative=$pkgver")
-conflicts=('dtk6declarative')
+provides=("dtk6declarative=$pkgver" "dtk6declarative-git=$pkgver")
+conflicts=('dtk6declarative' 'dtk6declarative-git')
+replaces=('dtk6declarative-git')
 groups=('deepin-git')
 source=()
 sha512sums=()
